@@ -15,7 +15,7 @@ class AiCodeHelperBackendApplicationTests {
 
     @Test
     void chat() {
-        aiCodeHelper.chat("你好，50个字以内介绍Faker");
+        aiCodeHelper.chat("你好,我是一个新手程序员，回复30个字以内");
     }
 
     @Test
