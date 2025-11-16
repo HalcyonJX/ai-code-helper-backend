@@ -1,5 +1,6 @@
 package com.halcyon.aicodehelperbackend.ai;
 
+import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.service.AiServices;
 import jakarta.annotation.Resource;
@@ -14,6 +15,11 @@ public class AiCodeHelperServiceFactory {
 
     @Bean
     public AiCodeHelperService aiCodeHelperService() {
-        return AiServices.create(AiCodeHelperService.class, qwenChatModel);
+        //会话记忆
+        MessageWindowChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(10);
+        return AiServices.builder(AiCodeHelperService.class)
+                .chatModel(qwenChatModel)
+                .chatMemory(chatMemory)
+                .build();
     }
 }
