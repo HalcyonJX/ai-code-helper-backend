@@ -24,4 +24,11 @@ class AiCodeHelperServiceTest {
         System.out.println(result);
     }
 
+    @Test
+    void chatForReport() {
+        String userMessage = "你好，我是程序员小张，学编程两年半，请帮我制定学习报告，不超过100字";
+        AiCodeHelperService.Report report = aiCodeHelperService.chatForReport(userMessage);
+        System.out.println(report);
+    }
+
 }
